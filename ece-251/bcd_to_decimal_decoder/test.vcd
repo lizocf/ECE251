@@ -1,0 +1,23 @@
+$date
+	Tue Feb  7 19:33:08 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module bcd_to_decimal_decoder_tb $end
+$var wire 4 ! B [3:0] $end
+$var reg 2 " A [1:0] $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx "
+bx !
+$end
+#1000
+b1000 !
+b11 "
+#2000

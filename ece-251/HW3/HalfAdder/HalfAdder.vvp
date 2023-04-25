@@ -1,0 +1,57 @@
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 10;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+:vpi_module "v2009";
+S_0x5602343b1f70 .scope module, "halfadder_tb" "halfadder_tb" 2 16;
+ .timescale -9 -10;
+v0x5602343c3530_0 .var "a", 0 0;
+v0x5602343c35f0_0 .var "b", 0 0;
+v0x5602343c36c0_0 .net "c", 0 0, L_0x5602343c39f0;  1 drivers
+v0x5602343c37c0_0 .net "s", 0 0, L_0x5602343c3890;  1 drivers
+S_0x5602343b20f0 .scope module, "uut" "halfadder" 2 20, 3 14 0, S_0x5602343b1f70;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A"
+    .port_info 1 /INPUT 1 "B"
+    .port_info 2 /OUTPUT 1 "S"
+    .port_info 3 /OUTPUT 1 "C"
+L_0x5602343c3890 .functor XOR 1, v0x5602343c3530_0, v0x5602343c35f0_0, C4<0>, C4<0>;
+L_0x5602343c39f0 .functor AND 1, v0x5602343c3530_0, v0x5602343c35f0_0, C4<1>, C4<1>;
+v0x56023437c290_0 .net "A", 0 0, v0x5602343c3530_0;  1 drivers
+v0x5602343c3230_0 .net "B", 0 0, v0x5602343c35f0_0;  1 drivers
+v0x5602343c32f0_0 .net "C", 0 0, L_0x5602343c39f0;  alias, 1 drivers
+v0x5602343c33c0_0 .net "S", 0 0, L_0x5602343c3890;  alias, 1 drivers
+    .scope S_0x5602343b1f70;
+T_0 ;
+    %vpi_call/w 2 23 "$monitor", "Time = %0d, a = %b, b = %b, s = %b, c = %b\012", $time, v0x5602343c3530_0, v0x5602343c35f0_0, v0x5602343c37c0_0, v0x5602343c36c0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5602343c3530_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5602343c35f0_0, 0, 1;
+    %delay 100, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5602343c3530_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5602343c35f0_0, 0, 1;
+    %delay 100, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5602343c3530_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5602343c35f0_0, 0, 1;
+    %delay 100, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5602343c3530_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5602343c35f0_0, 0, 1;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "HalfAdder_tb.sv";
+    "HalfAdder.sv";
