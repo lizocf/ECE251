@@ -1,0 +1,120 @@
+$date
+	Mon May  1 16:25:01 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module tb_dff $end
+$scope module uut0 $end
+$var wire 16 ! D [15:0] $end
+$var wire 1 " RESET $end
+$var wire 1 # CLOCK $end
+$var reg 16 $ Q [15:0] $end
+$upscope $end
+$upscope $end
+$scope module tb_dff $end
+$scope module uut1 $end
+$var wire 1 % ENABLE $end
+$var reg 1 # CLOCK $end
+$var reg 1 & start_clock $end
+$var real 1 ' clock_off $end
+$var real 1 ( clock_on $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+r5 (
+r5 '
+0&
+0%
+bx $
+0#
+x"
+bx !
+$end
+#100
+1&
+1%
+#150
+1#
+#160
+b1000000000000000 !
+#200
+b0 $
+1"
+0#
+#250
+1#
+#300
+0#
+#350
+1#
+#400
+0#
+#450
+1#
+#500
+0"
+0#
+#550
+b1000000000000000 $
+1#
+#560
+b1 !
+#600
+0#
+#650
+b1 $
+1#
+#700
+0#
+#750
+1#
+#800
+0#
+#850
+1#
+#900
+0#
+#950
+1#
+#1000
+0#
+#1050
+1#
+#1100
+0#
+#1150
+1#
+#1200
+0#
+#1250
+1#
+#1300
+0#
+#1350
+1#
+#1400
+0#
+#1450
+1#
+#1500
+0#
+#1550
+1#
+#1600
+0#
+#1650
+1#
+#1700
+0#
+#1750
+1#
+#1800
+0&
+0%
+0#
