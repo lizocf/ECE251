@@ -38,12 +38,16 @@ module maindec
 
     always @* begin
         case(op)
-            6'b000000: controls <= 9'b000011010; // RTYPE
-            6'b100011: controls <= 9'b000011000; // LW
-            6'b101011: controls <= 9'b001010000; // SW
-            6'b000100: controls <= 9'b000100001; // BEQ
-            6'b001000: controls <= 9'b101000000; // ADDI
-            6'b000010: controls <= 9'b000000100; // J
+            3'b000: controls <= 9'b000011010; // RTYPE
+            
+            3'b001: controls <= 9'b011001000; // LW
+            3'b010: controls <= 9'b011000000; // SW
+            3'b011: controls <= 9'b001001000; // ADDI
+            3'b100: controls <= 9'b001001000; // SUBI -> should change to BGT?
+            3'b101: controls <= 9'b000000100; // BEQ
+
+            3'b110: controls <= 9'b000000100; // J
+            3'b111: controls <= 9'b000000100; // JAL
             default:   controls <= 9'bxxxxxxxxx; // illegal operation
         endcase
     end
