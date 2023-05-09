@@ -1,5 +1,5 @@
 $date
-	Tue May  9 13:58:26 2023
+	Tue May  9 14:00:15 2023
 $end
 $version
 	Icarus Verilog
@@ -9,16 +9,16 @@ $timescale
 $end
 $scope module tb_sl2 $end
 $scope module uut $end
-$var wire 8 ! A [7:0] $end
+$var wire 16 ! A [15:0] $end
 $var wire 16 " Y [15:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-bx "
+bx00 "
 bx !
 $end
-#80
-b1111111110000000 "
-b10000000 !
+#160
+b111100 "
+b1111 !

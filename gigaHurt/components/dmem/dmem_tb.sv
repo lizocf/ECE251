@@ -49,7 +49,7 @@ module tb_dmem;
         #20 $finish;
     end
 
-   dmem uut(
+   alu uut(
         .clk(clk),
         .write_enable(write_enable),
         .addr(dmem_addr),

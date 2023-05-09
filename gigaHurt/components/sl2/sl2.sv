@@ -18,11 +18,11 @@
 module sl2
     #(parameter n = 16)(
 
-    input  logic [(n-1):0] In,
-    output logic [(n-1):0] Out
+    input  logic [(n-1):0] A,
+    output logic [(n-1):0] Y
 );
     // truncate two upper bits AND append two 0 lower bits
-    assign Out = {In[(n-3):0], 2'b00};
+    assign Y = {A[(n-3):0], 2'b00};
 endmodule
 
 `endif
