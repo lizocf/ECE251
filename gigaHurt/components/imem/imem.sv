@@ -16,7 +16,7 @@
 `timescale 1ns/100ps
 
 module imem
-    #(parameter n = 16, parameter r = 3)(
+    #(parameter n = 16, parameter r = 5)(
 
     input  logic [(r-1):0] pc,
     output logic [(n-1):0] instr
@@ -26,7 +26,8 @@ module imem
 
   initial
     begin
-      $readmemh("Code.txt",ROM);
+      $readmemb("Code.txt",ROM); 
+      // changed to decimal reading instead of hex
     end
 
   assign instr = ROM[pc];

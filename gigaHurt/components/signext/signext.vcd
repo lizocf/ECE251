@@ -1,0 +1,24 @@
+$date
+	Tue May  9 13:53:54 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module tb_sl2 $end
+$scope module uut $end
+$var wire 8 ! A [7:0] $end
+$var wire 16 " Y [15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx "
+bx !
+$end
+#80
+b0 "
+b0 !

@@ -16,13 +16,13 @@
 `timescale 1ns/100ps
 
 module signext
-    #(parameter n = 16, i = 7)(
+    #(parameter n = 16, i = 8)(
 
-    input  logic [(i-1):0] In,
-    output logic [(n-1):0] Out
+    input  logic [(i-1):0] A,
+    output logic [(n-1):0] Y
 );
     // take the i-1 bit and fill in to n length
-    assign Out = { {n{In[(i-1)]}}, In};
+    assign Y = { {n{A[(i-1)]}}, A};
 endmodule
 
 `endif

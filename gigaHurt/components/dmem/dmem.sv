@@ -16,7 +16,7 @@
 `timescale 1ns/100ps
 
 module dmem
-    #(parameter n = 16, parameter r = 3)(
+    #(parameter n = 16, parameter r = 5)(
 
     input  logic clk, write_enable,
     input  logic [(n-1):0] addr, writedata,

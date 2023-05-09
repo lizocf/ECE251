@@ -1,0 +1,37 @@
+$date
+	Tue May  9 13:06:53 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module tb_imem $end
+$scope module uut $end
+$var wire 16 ! instr [15:0] $end
+$var wire 5 " pc [4:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx "
+bx !
+$end
+#150
+b110000 !
+b0 "
+#250
+b110001 !
+b1 "
+#350
+b110010 !
+b10 "
+#450
+b110011 !
+b11 "
+#550
+b110100 !
+b100 "
+#600

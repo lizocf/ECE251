@@ -39,7 +39,7 @@ module controller
     logic       branch;
     
     // CPU main decoder
-    maindec md(op, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, aluop);
+    maindec md(op, memtoreg, memwrite, alusrc, branch, regdst, regwrite, jump, aluop);
     // CPU's ALU decoder
     aludec  ad(funct, aluop, alucontrol);
 
