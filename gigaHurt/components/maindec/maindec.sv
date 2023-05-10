@@ -5,7 +5,7 @@
 // 
 //     Create Date: 2023-02-07
 //     Module Name: maindec
-//     Description: 32-bit RISC-based CPU main decoder (MIPS)
+//     Description: 16-bit RISC-based CPU main decoder (MIPS)
 //
 // Revision: 1.0
 //
@@ -33,7 +33,7 @@ module maindec
     logic [8:0] controls; // 9-bit control vector
 
     // controls has 9 logical signals
-    assign {memtoreg, memwrite, alusrc, branch
+    assign {memtoreg, memwrite, alusrc, branch,
             regdst, regwrite, jump, aluop} = controls;
 
     always @* begin
