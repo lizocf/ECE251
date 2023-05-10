@@ -18,17 +18,11 @@
 `include "../clock/clock.sv"
 
 module maindec_tb;
-//    parameter n = 16;
-//    wire clk;
     logic [2:0] op;
     logic memtoreg, memwrite, branch;
     logic alusrc, regdst, regwrite, jump;
     logic [1:0] aluop;
     integer i;
-//    logic [8:0] controls;
-
-//    assign {memtoreg, memwrite, alusrc, branch,
-//        regdst, regwrite, jump, aluop} = controls;
 
    initial begin
         $dumpfile("maindec.vcd");
@@ -39,14 +33,6 @@ module maindec_tb;
 
     initial begin
         #10 op <= 3'b0;
-//        memtoreg <= 1'b0;
-//        memwrite <= 1'b0;
-//        alusrc <= 1'b0;
-//        branch <= 1'b0;
-//        regdst <= 1'b0;
-//        regwrite <= 1'b0;
-//        jump <= 1'b0;
-//        aluop <= 2'b00;
 
         for (i=0; i<8; i = i+1)
         begin
@@ -68,10 +54,6 @@ module maindec_tb;
         .aluop(aluop)
     );
 
-//    clock uut1(
-//        .ENABLE(clock_enable),
-//        .CLOCK(clk)
-//    );
 endmodule
 
 `endif // TB_MAINDEC
