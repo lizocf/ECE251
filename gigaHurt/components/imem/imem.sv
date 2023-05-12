@@ -26,8 +26,7 @@ module imem
 
   initial
     begin
-      $readmemb("Code.txt",ROM); 
-      // changed to decimal reading instead of hex
+      $readmemh("Code.txt",ROM); 
     end
 
   assign instr = ROM[pc];

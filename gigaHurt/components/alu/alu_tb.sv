@@ -17,7 +17,7 @@
 `include "alu.sv"
 `include "../clock/clock.sv"
 
-module dmem_tb;
+module alu_tb;
     parameter n = 16;
     wire clk;
     logic clock_enable;
@@ -29,21 +29,36 @@ module dmem_tb;
    initial begin
         $dumpfile("alu.vcd");
         $dumpvars(0, uut, uut1);
-        $monitor("time=%0t clk_enable=%b A=%b B=%b Y=%b",
-                 $realtime, clock_enable, A, B, Y);
+        $monitor("time=%0t alu_ctrl=%b A=%b B=%b Y=%b",
+                 $realtime, aluctrl, A, B, Y);
     end
 
     initial begin
         #10 clock_enable <= 1;
         A <= #n'h00F;
-        B <= #n'h00F;
+        B <= #n'h0F1;
         aluctrl <= 4'b0000;
-
-        for (i=0; i<16; i = i+1)
+        #20
+        
+        for (i=0; i<5; i = i+1)
         begin
+            A <= #n'h00F;
+            B <= #n'h0F1;
             aluctrl = aluctrl + 4'b0001;
             #10;
         end
+            
+            A <= #n'h00F;
+            B <= #n'h0F1;
+            aluctrl = 4'b1000;
+            #10;
+
+            A <= #n'h00F;
+            B <= #n'h0F1;
+            aluctrl = 4'b1001;
+            #10;
+
+
         $finish;
     end
     

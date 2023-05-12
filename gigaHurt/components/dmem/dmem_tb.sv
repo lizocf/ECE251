@@ -28,7 +28,7 @@ module tb_dmem;
    initial begin
         $dumpfile("dmem.vcd");
         $dumpvars(0, uut, uut1);
-        $monitor("time=%0t write_enable=%b dmem_addr=%h readdata=%h writedata=%h",
+        $monitor("time=%0t write_enable=%b dmem_addr=%b readdata=%b writedata=%b",
             $realtime, write_enable, dmem_addr, readdata, writedata);
     end
 
@@ -49,7 +49,7 @@ module tb_dmem;
         #20 $finish;
     end
 
-   alu uut(
+   dmem uut(
         .clk(clk),
         .write_enable(write_enable),
         .addr(dmem_addr),
