@@ -1,0 +1,95 @@
+$date
+	Fri May 12 20:12:22 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module maindec_tb $end
+$scope module uut $end
+$var wire 3 ! op [2:0] $end
+$var wire 1 " regwrite $end
+$var wire 1 # regdst $end
+$var wire 1 $ memwrite $end
+$var wire 1 % memtoreg $end
+$var wire 1 & jump $end
+$var wire 1 ' branch $end
+$var wire 1 ( alusrc $end
+$var wire 2 ) aluop [1:0] $end
+$var reg 9 * controls [8:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx *
+bx )
+x(
+x'
+x&
+x%
+x$
+x#
+x"
+bx !
+$end
+#100
+0%
+0$
+0(
+0'
+1#
+1"
+0&
+b10 )
+b11010 *
+b0 !
+#200
+1$
+1(
+0#
+b0 )
+b11001000 *
+b1 !
+#300
+0"
+b11000000 *
+b10 !
+#400
+0$
+1"
+b1001000 *
+b11 !
+#500
+x%
+x$
+x(
+x'
+x#
+x"
+x&
+bx )
+bx *
+b100 !
+#600
+0%
+0$
+0(
+1'
+0#
+0"
+0&
+b1 )
+b100001 *
+b101 !
+#700
+0'
+1&
+b0 )
+b100 *
+b110 !
+#800
+b111 !
+#900
