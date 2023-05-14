@@ -20,12 +20,12 @@ module maindec
     //
     // ---------------- PORT DEFINITIONS ----------------
     //
-    input  logic [2:0] op,
-    output logic       memtoreg, memwrite,
-    output logic       branch, alusrc,
-    output logic       regdst, regwrite,
-    output logic       jump,
-    output logic [1:0] aluop
+    input   [2:0] op,
+    output  memtoreg, memwrite,
+    output  branch, alusrc,
+    output  regdst, regwrite,
+    output  jump,
+    output  [1:0] aluop
 );
     //
     // ---------------- MODULE DESIGN IMPLEMENTATION ----------------
@@ -40,14 +40,17 @@ module maindec
         case(op)
             3'b000: controls <= 9'b000011010; // RTYPE
             
+            // ITYPE
             3'b001: controls <= 9'b011001000; // LW
             3'b010: controls <= 9'b011000000; // SW
             3'b011: controls <= 9'b001001000; // ADDI
-            3'b100: controls <= 9'b001001000; // SUBI -> should change to BGT?
-            3'b101: controls <= 9'b000000100; // BEQ
+            // 3'b100: controls <= 9'b000100001; // BGT
+            3'b101: controls <= 9'b000100001; // BEQ
 
+            // JTYPE
             3'b110: controls <= 9'b000000100; // J
             3'b111: controls <= 9'b000000100; // JAL
+            
             default:   controls <= 9'bxxxxxxxxx; // illegal operation
         endcase
     end

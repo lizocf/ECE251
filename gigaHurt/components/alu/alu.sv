@@ -25,16 +25,18 @@ module alu
 );
     logic [(n-1):0] condinvb, sum;
     logic [(2*n-1):0] HiLo;
+    logic [(n-1):0] sumSlt;
 
     assign zero = (result == {n{1'b0}}); // zero result control signal
-    assign condinvb = alucontrol[3] ? ~b : b;
-    assign sumSlt = a + condinvb + alucontrol[3]; // (a-b using 2s complement) test if a == b, if b<a, then sumSlt will have neg bit[31]
+    assign condinvb = alucontrol[2] ? ~b : b;
+    assign sumSlt = a + condinvb + alucontrol[2]; // (a-b using 2s complement) test if a == b, if b<a, then sumSlt will have neg bit[31]
+
 
     // init HiLo register (n bit num * n bit num = 2n bit num)
-    // initial
-    //     begin
-    //         HiLo = (2*n)'b0;
-    //     end
+    initial
+        begin
+            HiLo = 16'b0;
+        end
 
     always @(a,b,alucontrol) begin
         case (alucontrol)
@@ -71,17 +73,17 @@ module alu
         endcase
     end
 
-    //Multiply and divide results are only stored at clock falling edge.
-    // always @(negedge clk) begin
-    //     case (alucontrol)
-    //         4'b0101: HiLo = a * b; // mult
-    //         4'b1000: // div
-    //         begin
-    //             HiLo[(n-1):0] = a / b;
-    //             HiLo[(2*n-1):n] = a % b;
-    //         end
-    //     endcase				
-    // end
+    // Multiply and divide results are only stored at clock falling edge.
+    always @(negedge clk) begin
+        case (alucontrol)
+            4'b0101: HiLo = a * b; // mult
+            4'b1000: // div
+            begin
+                HiLo[(n-1):0] = a / b;
+                HiLo[(2*n-1):n] = a % b;
+            end
+        endcase				
+    end
 
 endmodule
 

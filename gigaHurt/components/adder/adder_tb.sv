@@ -23,12 +23,12 @@ module tb_adder;
    initial begin
         $dumpfile("adder.vcd");
         $dumpvars(0, uut);
-        $monitor("a = 0x%0h b = 0x%0h y = 0x%0h", a, b, y);
+        $monitor("a = %b b = %b y = %b", a, b, y);
     end
 
     initial begin
-        a <= #n'hfffe;
-        b <= #n'h0001;
+        a <= #n'b0;
+        b <= #n'b100;
     end
 
     adder uut(

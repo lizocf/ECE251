@@ -1,0 +1,53 @@
+$date
+	Fri May 12 19:47:46 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module aludec_tb $end
+$scope module uut $end
+$var wire 2 ! aluop [1:0] $end
+$var wire 4 " funct [3:0] $end
+$var reg 4 # alucontrol [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx #
+bx "
+bx !
+$end
+#100
+b0 #
+b0 "
+#200
+b100 #
+b1 "
+#300
+b0 #
+b10 "
+#400
+b1 #
+b11 "
+#500
+b111 #
+b100 "
+#600
+b101 #
+b101 "
+#700
+bx #
+b110 "
+#800
+b111 "
+#900
+b1000 #
+b1000 "
+#1000
+b1001 #
+b1001 "
+#1100
