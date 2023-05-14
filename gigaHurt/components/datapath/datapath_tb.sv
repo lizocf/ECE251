@@ -56,8 +56,9 @@ module datapath_tb;
 
     initial begin
         clk = 0;
-        reset = 0;
+        reset = 1;
         #10
+        reset = 0;
         zero0 = 1;
         instr = 16'b0000010100110001;
         #10
