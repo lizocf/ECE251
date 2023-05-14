@@ -28,7 +28,8 @@ module tb_sl2;
     end
 
     initial begin
-        a <= #n'h000F;
+        a <= #n'b0;
+        a <= #n'b10;
     end
 
     sl2 uut(
