@@ -19,40 +19,75 @@
 `include "../clock/clock.sv"
 `include "../controller/controller.sv"
 
-module datapath_tb
-    #(parameter n = 16)(
-    //
-    // ---------------- PORT DEFINITIONS ----------------
-    //
-    logic        clk, reset,
-    logic        memtoreg, pcsrc,
-    logic        alusrc, regdst,
-    logic        regwrite, jump,
-    logic [3:0]  alucontrol,
-    logic        zero,
-    logic [(n-1):0] pc,
-    logic [(n-1):0] instr,
-    logic [(n-1):0] aluout, writedata,
-    logic [(n-1):0] readdata
-);
-    //
-    // ---------------- MODULE DESIGN IMPLEMENTATION ----------------
-    //
+module datapath_tb;
+    parameter n = 16;
+    logic        clk, reset;
+    logic        memtoreg, pcsrc;
+    logic        alusrc, regdst;
+    logic        regwrite, jump;
+    logic [3:0]  alucontrol;
+    logic        zero0, zero1;
+    logic [(n-1):0] pc;
+    logic [(n-1):0] instr;
+    logic [(n-1):0] aluout, writedata;
+    logic [(n-1):0] readdata;
+
     logic [2:0]  writereg;
     logic [(n-1):0] pcnext, pcnextbr, pcplus2, pcbranch; // +2 to go up to next inst
     logic [(n-1):0] signimm, signimmsh;
     logic [(n-1):0] srca, srcb;
     logic [(n-1):0] result;
+    logic [2:0] op;
+    logic [3:0] funct;
+    logic [1:0] aluop;
 
     initial begin
         $dumpfile("datapath.vcd");
-        $dumpvars(0, uut);
-        $monitor("time=%0t instr=%b zero=%b pc=%b aluout=%b writedata=%b",
-            $realtime, instr, zero, pc, aluout, writedata);
+        $dumpvars(0, uut1, uut2);
+        $monitor("time=%0t op=%b aluop=%b funct=%b zero0=%b, memtoreg=%b memwrite=%b pcsrc=%b alusrc=%b regdst=%b regwrite=%b jump=%b alucontrol=%b instr=%b zero1=%b pc=%b aluout=%b writedata=%b",
+                $realtime, op, aluop, funct, zero0, memtoreg, memwrite, pcsrc, 
+                alusrc, regdst, regwrite, jump, alucontrol, instr, zero1, pc, aluout, writedata);
     end
 
+    always #5 clk = ~clk;
 
-    
+    assign op = instr[15:13];
+    assign funct = instr[3:0]; 
+
+    initial begin
+        clk = 0;
+        reset = 0;
+        #10
+        zero0 = 1;
+        instr = 16'b0000010100110001;
+        #10
+        instr = 16'b0001011101110010;
+        #10
+        zero0 = 0;
+        instr = 16'b0000010100110001;
+        #10
+        instr = 16'b0001011101110010;
+        $finish;
+    end
+
+   controller uut1(
+        .op(op),
+        .funct(funct),
+        .zero(zero0),
+        .memtoreg(memtoreg),
+        .memwrite(memwrite),
+        .pcsrc(pcsrc),
+        .alusrc(alusrc),
+        .regdst(regdst),
+        .regwrite(regwrite),
+        .jump(jump),
+        .alucontrol(alucontrol)
+    );
+
+    datapath uut2(clk, reset, memtoreg, pcsrc, alusrc, regdst, regwrite, jump, alucontrol,
+                  zero1, pc, instr, aluout, writedata, readdata);
+
+
 endmodule
 
 `endif // TB_DATAPATH
