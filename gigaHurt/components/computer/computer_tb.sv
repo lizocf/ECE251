@@ -83,9 +83,9 @@ module computer_tb;
       $display("\t+regfile -- ra2 = %b",dut.mips.dp.rf.ra2);
       $display("\t+regfile -- we3 = %b",dut.mips.dp.rf.we3);
       $display("\t+regfile -- wa3 = %b",dut.mips.dp.rf.wa3);
-      $display("\t+regfile -- wd3 = %b",dut.mips.dp.rf.wd3);
-      $display("\t+regfile -- rd1 = %b",dut.mips.dp.rf.rd1);
-      $display("\t+regfile -- rd2 = %b",dut.mips.dp.rf.rd2);
+      $display("\t+regfile -- wd3 = %d",dut.mips.dp.rf.wd3);
+      $display("\t+regfile -- rd1 = %d",dut.mips.dp.rf.rd1);
+      $display("\t+regfile -- rd2 = %d",dut.mips.dp.rf.rd2);
       $display("\t+RAM[%2d] = %2d",dut.dmem.addr,dut.dmem.readdata);
       $display("writedata\tdataadr\tmemwrite");
   end
@@ -112,9 +112,9 @@ module computer_tb;
     $display("\t+regfile -- ra2 = %b",dut.mips.dp.rf.ra2);
     $display("\t+regfile -- we3 = %b",dut.mips.dp.rf.we3);
     $display("\t+regfile -- wa3 = %b",dut.mips.dp.rf.wa3);
-    $display("\t+regfile -- wd3 = %b",dut.mips.dp.rf.wd3);
-    $display("\t+regfile -- rd1 = %b",dut.mips.dp.rf.rd1);
-    $display("\t+regfile -- rd2 = %b",dut.mips.dp.rf.rd2);
+    $display("\t+regfile -- wd3 = %d",dut.mips.dp.rf.wd3);
+    $display("\t+regfile -- rd1 = %d",dut.mips.dp.rf.rd1);
+    $display("\t+regfile -- rd2 = %d",dut.mips.dp.rf.rd2);
     $display("\t+RAM[%2d] = %2d",dut.dmem.addr,dut.dmem.readdata);
     $display("writedata\tdataadr\tmemwrite");
   end
