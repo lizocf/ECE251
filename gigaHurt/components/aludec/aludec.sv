@@ -31,10 +31,10 @@ module aludec(
         default:
             case(funct) // R-type instructions
                 4'b0000: alucontrol <= 4'b0000; // and
-                4'b0001: alucontrol <= 4'b0100; // or
-                4'b0010: alucontrol <= 4'b0000; // nor
-                4'b0011: alucontrol <= 4'b0001; // add
-                4'b0100: alucontrol <= 4'b0111; // sub
+                4'b0001: alucontrol <= 4'b0001; // or
+                4'b0010: alucontrol <= 4'b0010; // nor
+                4'b0011: alucontrol <= 4'b0011; // add
+                4'b0100: alucontrol <= 4'b0100; // sub
                 4'b0101: alucontrol <= 4'b0101; // mul
                 4'b1000: alucontrol <= 4'b1000; // div
                 4'b1001: alucontrol <= 4'b1001; // slt

@@ -35,7 +35,23 @@ module controller_tb;
     end
 
     initial begin
-        #10 op <= 000; funct <= 0001; zero <= 1;
+        #10 op <= 011; funct <= 0001; zero <= 0;
+        #10 op <= 000; funct <= 0001;
+                // clk = 0;
+                // reset = 1;
+        // #10
+        // reset = 0;
+        // zero0 = 0;
+        // instr = 16'b0110101000000111; // addi $2 $4 7
+        // #10
+        // instr = 16'b0110110000001010; // addi $3 $0 10 
+        // #10
+        // instr = 16'b0000001000010001; // or $1 $2 $3
+        // #10
+        // readdata = 16'b0000000000011111;
+        // instr =    16'b0100000010000000 ; // sw $2 2($1)
+        // #10
+        // $finish;
         $finish;
     end
     

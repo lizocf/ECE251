@@ -18,7 +18,7 @@
 `include "computer.sv"
 `include "../clock/clock.sv"
 
-module tb_computer;
+module computer_tb;
   parameter n = 16; // # bits to represent the instruction / ALU operand / general purpose register (GPR)
   parameter m = 5;  // # bits to represent the address of the 2**m=16 GPRs in the CPU
   logic clk;
@@ -45,7 +45,7 @@ module tb_computer;
   initial begin
     firstTest = 1'b0;
     secondTest = 1'b0;
-    $dumpfile("tb_computer.vcd");
+    $dumpfile("computer.vcd");
     $dumpvars(0,dut1,clk,reset,writedata,dataadr,memwrite);
     $monitor("t=%t\t%b\t%b\t%b",$realtime,writedata,dataadr,memwrite);
     // $dumpvars(0,clk,a,b,ctrl,result,zero,negative,carryOut,overflow);
