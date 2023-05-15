@@ -23,7 +23,7 @@ module imem
     // output logic [(n-1):0] instr2
 );
 
-    logic [(n-1):0] ROM[0:(2**r-1)];
+    logic [(n-1):0] ROM[0:((2**2)-1)];
 
   initial
     begin

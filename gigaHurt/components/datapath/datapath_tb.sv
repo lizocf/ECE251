@@ -43,7 +43,7 @@ module datapath_tb;
     initial begin
         $dumpfile("datapath.vcd");
         $dumpvars(0, uut1, uut2);
-        $monitor("time=%0t instr=%b zero1=%b pc=%b alucontrol=%b aluout=%b writedata=%b",
+        $monitor("time=%0t instr=%b zero1=%b pc=%d alucontrol=%b aluout=%b writedata=%b",
                 $realtime, 
                 //op=%b funct=%b zero0=%b memtoreg=%b memwrite=%b pcsrc=%b alusrc=%b regdst=%b regwrite=%b jump=%b alucontrol=%b 
                 // op, funct, zero0, memtoreg, memwrite, pcsrc, alusrc, regdst, regwrite, jump, alucontrol, 
