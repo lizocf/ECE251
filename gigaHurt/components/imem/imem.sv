@@ -23,14 +23,14 @@ module imem
     // output logic [(n-1):0] instr2
 );
 
-    logic [(n-1):0] ROM[0:((2**2)-1)];
+    logic [(n-1):0] RAM[0:((2**r)-1)];
 
   initial
     begin
-      $readmemb("Code.txt",ROM); 
+      $readmemb("Code.txt",RAM); 
     end
 
-  assign instr = ROM[pc];
+  assign instr = RAM[pc];
   // assign instr2 = ROM[pc+2];
 
 endmodule
