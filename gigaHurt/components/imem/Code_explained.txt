@@ -1,25 +1,20 @@
-addi $sp, $sp, -6      // $sp = register 7 , set sp back 3 registers
-sw $ra, 4($sp)         // $ra = register 6
+addi $sp, $sp, -6      // $sp = r7 , set sp back 3 registers
+sw $ra, 4($sp)         // $ra = r6
 sw r4, 2($sp)
 sw r5, 0($sp)
-add r4, r3, $0          // add replace move psuedoinstr.
-addi r1, $0, 1
-slt 
-beq
-
-
-ble $s0, 0x2, fibonacciExit # check terminal condition
-addi $a0, $s0, -1 # set args for recursive call to f(n-1)
-jal fibonacci
-move $s1, $v0 # store result of f(n-1) to s1
-addi $a0, $s0, -2 # set args for recursive call to f(n-2)
-jal fibonacci
-add $v0, $s1, $v0 # add result of f(n-1) to it
-fibonacciExit:
-# Epilogue
-lw $ra, 8($sp)
-lw $s0, 4($sp)
-lw $s1, 0($sp)
-addi $sp, $sp, 12
+add r4, r3, r0         // add to replace move psuedoinstr
+addi r2, r0, 1
+addi r1, r0, 2
+slt r1, r1, r4         // slt then beq replaces ble psuedoinstr
+beq r1, r0, 30         // branch to fibexit
+addi r3, r4, -1
+jal 0                  // goto top
+add r5, r2, r0
+addi r3, r4, -2
+jal 0                  // goto top
+add r2, r5, r2
+lw $ra, 4($sp)         // fibexit is this line (word 30)
+lw r4, 2($sp)
+lw r5, 0($sp)
+addi $sp, $sp, 6
 jr $ra
-## End of function fibonacci
