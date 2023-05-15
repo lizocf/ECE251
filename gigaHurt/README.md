@@ -47,7 +47,7 @@ regfile: input and output of registers of the cpu
 
 signext: signextension module for i type instructions using two's complement
 
-sl2
+sl2: binary shift left 2 (truncate two upper bits AND append two 0 lower bits)
 
 ## Authors
 Lizelle Ocfemia lizelle.ocfemia@cooper.edu
