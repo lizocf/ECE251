@@ -49,7 +49,7 @@ module maindec
 
             // JTYPE
             3'b110: controls <= 9'b000000100; // J
-            3'b111: controls <= 9'b000000100; // JAL
+            3'b111: controls <= 9'b010000100; // JAL
             
             default:   controls <= 9'bxxxxxxxxx; // illegal operation
         endcase

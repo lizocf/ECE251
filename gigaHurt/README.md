@@ -16,7 +16,19 @@ __The computer comes loaded with a Fibonacci program in */components/computer/Co
 
 The Fibonacci program calculates the 8th term of the Fibonacci series using recursive techniques (jal and jr instructions)
 
-## The components
+
+## The Design
+The 32 bit MIPS CPU architecture has plenty of benefits in terms of simplicity, and GigaHurt comes from considering "what do simple programs actually need?"
+
+16 bits is a limitation in many ways, but still provides enough room for all base level computations.
+
+A 3 bit opcode only leaves room for 8 instructions, but similar to MIPS all r-type instructions fall under OP=000 and instead utilize the last four bits of instruction (funct) to determine the operation
+
+This leaves room for all basic arithmetic and bit operations as well as jumping. Through Jal and Jr GigaHurt is even capable of making function calls opening the door to nested procedures or even recursion.
+
+Another limitation of this design is that registers are also only identifiable by 3 bits. 8 registers is a small number to work with, though as shown through example it is enough to run one call of fibonacci without using moving data between memory- proof that such a limitation is not a problem for simple algorithms.
+
+## The Components
 adder: 16 bit adder
 
 alu: handles arithmetic logic for r type instructions
