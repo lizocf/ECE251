@@ -1,3 +1,81 @@
+<<<<<<< HEAD
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 10;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_000002b76051a660 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000002b76051bb00 .scope module, "tb_imem" "tb_imem" 3 19;
+ .timescale -9 -10;
+P_000002b76051a7f0 .param/l "n" 0 3 20, +C4<00000000000000000000000000010000>;
+P_000002b76051a828 .param/l "r" 0 3 21, +C4<00000000000000000000000000000101>;
+v000002b7607961d0_0 .var "imem_addr", 4 0;
+v000002b760796270_0 .net "readdata", 15 0, L_000002b7607963b0;  1 drivers
+S_000002b760795fa0 .scope module, "uut" "imem" 3 43, 4 18 0, S_000002b76051bb00;
+ .timescale -9 -10;
+    .port_info 0 /INPUT 5 "pc";
+    .port_info 1 /OUTPUT 16 "instr";
+P_000002b760763420 .param/l "n" 0 4 19, +C4<00000000000000000000000000010000>;
+P_000002b760763458 .param/l "r" 0 4 19, +C4<00000000000000000000000000000101>;
+L_000002b7607963b0 .functor BUFZ 16, L_000002b760796310, C4<0000000000000000>, C4<0000000000000000>, C4<0000000000000000>;
+v000002b760763290 .array "ROM", 31 0, 15 0;
+v000002b760519000_0 .net *"_ivl_0", 15 0, L_000002b760796310;  1 drivers
+v000002b7607630e0_0 .net *"_ivl_2", 6 0, L_000002b760793890;  1 drivers
+L_000002b7607de858 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v000002b76051bc90_0 .net *"_ivl_5", 1 0, L_000002b7607de858;  1 drivers
+v000002b76051bd30_0 .net "instr", 15 0, L_000002b7607963b0;  alias, 1 drivers
+v000002b760796130_0 .net "pc", 4 0, v000002b7607961d0_0;  1 drivers
+L_000002b760796310 .array/port v000002b760763290, L_000002b760793890;
+L_000002b760793890 .concat [ 5 2 0 0], v000002b7607961d0_0, L_000002b7607de858;
+    .scope S_000002b760795fa0;
+T_0 ;
+    %vpi_call/w 4 29 "$readmemh", "Code.txt", v000002b760763290 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000002b76051bb00;
+T_1 ;
+    %vpi_call/w 3 27 "$dumpfile", "imem.vcd" {0 0 0};
+    %vpi_call/w 3 28 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002b760795fa0 {0 0 0};
+    %vpi_call/w 3 30 "$monitor", "time=%0t \011 imem_addr=%h readdata=%b", $realtime, v000002b7607961d0_0, v000002b760796270_0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_000002b76051bb00;
+T_2 ;
+    %delay 100, 0;
+    %pushi/vec4 0, 0, 5;
+    %assign/vec4 v000002b7607961d0_0, 50;
+    %delay 100, 0;
+    %pushi/vec4 1, 0, 5;
+    %assign/vec4 v000002b7607961d0_0, 50;
+    %delay 100, 0;
+    %pushi/vec4 2, 0, 5;
+    %assign/vec4 v000002b7607961d0_0, 50;
+    %delay 100, 0;
+    %pushi/vec4 3, 0, 5;
+    %assign/vec4 v000002b7607961d0_0, 50;
+    %delay 100, 0;
+    %pushi/vec4 4, 0, 5;
+    %assign/vec4 v000002b7607961d0_0, 50;
+    %delay 100, 0;
+    %pushi/vec4 5, 0, 5;
+    %assign/vec4 v000002b7607961d0_0, 50;
+    %vpi_call/w 3 40 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "imem_tb.sv";
+    "imem.sv";
+=======
 #! /usr/bin/vvp
 :ivl_version "10.3 (stable)";
 :ivl_delay_selection "TYPICAL";
@@ -7,60 +85,56 @@
 :vpi_module "v2005_math";
 :vpi_module "va_math";
 :vpi_module "v2009";
-S_0x55d7f9dcaad0 .scope module, "tb_imem" "tb_imem" 2 19;
+S_0x55e76d10bab0 .scope module, "tb_imem" "tb_imem" 2 19;
  .timescale -9 -10;
-P_0x55d7f9da6300 .param/l "n" 0 2 20, +C4<00000000000000000000000000010000>;
-P_0x55d7f9da6340 .param/l "r" 0 2 21, +C4<00000000000000000000000000000101>;
-v0x55d7f9ddf480_0 .var "imem_addr", 4 0;
-v0x55d7f9ddf540_0 .net "readdata", 15 0, L_0x55d7f9dcaeb0;  1 drivers
-S_0x55d7f9d94280 .scope module, "uut" "imem" 2 43, 3 18 0, S_0x55d7f9dcaad0;
+P_0x55e76d0d4550 .param/l "n" 0 2 20, +C4<00000000000000000000000000010000>;
+P_0x55e76d0d4590 .param/l "r" 0 2 21, +C4<00000000000000000000000000000101>;
+v0x55e76d11fa70_0 .var "imem_addr", 4 0;
+v0x55e76d11fb60_0 .net "instr", 15 0, L_0x55e76d10be90;  1 drivers
+S_0x55e76d0d5280 .scope module, "uut" "imem" 2 43, 3 18 0, S_0x55e76d10bab0;
  .timescale -9 -10;
     .port_info 0 /INPUT 5 "pc"
     .port_info 1 /OUTPUT 16 "instr"
-P_0x55d7f9da61e0 .param/l "n" 0 3 19, +C4<00000000000000000000000000010000>;
-P_0x55d7f9da6220 .param/l "r" 0 3 19, +C4<00000000000000000000000000000101>;
-L_0x55d7f9dcaeb0 .functor BUFZ 16, L_0x55d7f9ddf610, C4<0000000000000000>, C4<0000000000000000>, C4<0000000000000000>;
-v0x55d7f9d94550 .array "ROM", 31 0, 15 0;
-v0x55d7f9d945f0_0 .net *"_s0", 15 0, L_0x55d7f9ddf610;  1 drivers
-v0x55d7f9ddf040_0 .net *"_s2", 6 0, L_0x55d7f9ddf710;  1 drivers
-L_0x7f8b50ed5018 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
-v0x55d7f9ddf130_0 .net *"_s5", 1 0, L_0x7f8b50ed5018;  1 drivers
-v0x55d7f9ddf210_0 .net "instr", 15 0, L_0x55d7f9dcaeb0;  alias, 1 drivers
-v0x55d7f9ddf340_0 .net "pc", 4 0, v0x55d7f9ddf480_0;  1 drivers
-L_0x55d7f9ddf610 .array/port v0x55d7f9d94550, L_0x55d7f9ddf710;
-L_0x55d7f9ddf710 .concat [ 5 2 0 0], v0x55d7f9ddf480_0, L_0x7f8b50ed5018;
-    .scope S_0x55d7f9d94280;
+P_0x55e76d0e6f50 .param/l "n" 0 3 19, +C4<00000000000000000000000000010000>;
+P_0x55e76d0e6f90 .param/l "r" 0 3 19, +C4<00000000000000000000000000000101>;
+L_0x55e76d10be90 .functor BUFZ 16, L_0x55e76d11fc30, C4<0000000000000000>, C4<0000000000000000>, C4<0000000000000000>;
+v0x55e76d0d5550 .array "ROM", 3 0, 15 0;
+v0x55e76d0d55f0_0 .net *"_s0", 15 0, L_0x55e76d11fc30;  1 drivers
+v0x55e76d11f840_0 .net "instr", 15 0, L_0x55e76d10be90;  alias, 1 drivers
+v0x55e76d11f930_0 .net "pc", 4 0, v0x55e76d11fa70_0;  1 drivers
+L_0x55e76d11fc30 .array/port v0x55e76d0d5550, v0x55e76d11fa70_0;
+    .scope S_0x55e76d0d5280;
 T_0 ;
-    %vpi_call/w 3 29 "$readmemh", "Code.txt", v0x55d7f9d94550 {0 0 0};
+    %vpi_call/w 3 30 "$readmemb", "Code.txt", v0x55e76d0d5550 {0 0 0};
     %end;
     .thread T_0;
-    .scope S_0x55d7f9dcaad0;
+    .scope S_0x55e76d10bab0;
 T_1 ;
     %vpi_call/w 2 27 "$dumpfile", "imem.vcd" {0 0 0};
-    %vpi_call/w 2 28 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55d7f9d94280 {0 0 0};
-    %vpi_call/w 2 30 "$monitor", "time=%0t \011 imem_addr=%h readdata=%b", $realtime, v0x55d7f9ddf480_0, v0x55d7f9ddf540_0 {0 0 0};
+    %vpi_call/w 2 28 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55e76d0d5280 {0 0 0};
+    %vpi_call/w 2 30 "$monitor", "time=%0t \011 imem_addr=%h readdata=%b", $realtime, v0x55e76d11fa70_0, v0x55e76d11fb60_0 {0 0 0};
     %end;
     .thread T_1;
-    .scope S_0x55d7f9dcaad0;
+    .scope S_0x55e76d10bab0;
 T_2 ;
     %delay 100, 0;
     %pushi/vec4 0, 0, 5;
-    %assign/vec4 v0x55d7f9ddf480_0, 50;
+    %assign/vec4 v0x55e76d11fa70_0, 50;
     %delay 100, 0;
     %pushi/vec4 1, 0, 5;
-    %assign/vec4 v0x55d7f9ddf480_0, 50;
+    %assign/vec4 v0x55e76d11fa70_0, 50;
     %delay 100, 0;
     %pushi/vec4 2, 0, 5;
-    %assign/vec4 v0x55d7f9ddf480_0, 50;
+    %assign/vec4 v0x55e76d11fa70_0, 50;
     %delay 100, 0;
     %pushi/vec4 3, 0, 5;
-    %assign/vec4 v0x55d7f9ddf480_0, 50;
+    %assign/vec4 v0x55e76d11fa70_0, 50;
     %delay 100, 0;
     %pushi/vec4 4, 0, 5;
-    %assign/vec4 v0x55d7f9ddf480_0, 50;
+    %assign/vec4 v0x55e76d11fa70_0, 50;
     %delay 100, 0;
     %pushi/vec4 5, 0, 5;
-    %assign/vec4 v0x55d7f9ddf480_0, 50;
+    %assign/vec4 v0x55e76d11fa70_0, 50;
     %vpi_call/w 2 40 "$finish" {0 0 0};
     %end;
     .thread T_2;
@@ -70,3 +144,4 @@ T_2 ;
     "<interactive>";
     "imem_tb.sv";
     "./imem.sv";
+>>>>>>> 434bceeff20a6f4a59c0b9c0e830042b09d953a2

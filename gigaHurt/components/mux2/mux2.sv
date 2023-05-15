@@ -31,3 +31,4 @@ module mux2
 endmodule
 
 `endif // MUX2
+

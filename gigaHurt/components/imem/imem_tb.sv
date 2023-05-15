@@ -19,7 +19,7 @@
 module tb_imem;
     parameter n = 16; // bit length of registers/memory
     parameter r = 5; // we are only addressing 64=2**6 mem slots in imem
-    logic [(n-1):0] readdata;
+    logic [(n-1):0] instr;
     logic [(r-1):0] imem_addr;
     integer k;
 
@@ -27,22 +27,22 @@ module tb_imem;
         $dumpfile("imem.vcd");
         $dumpvars(0, uut);
         //$monitor("enable = %b clk = %b", enable, clk);
-        $monitor("time=%0t \t imem_addr=%h readdata=%b",$realtime, imem_addr, readdata);
+        $monitor("time=%0t \t imem_addr=%h readdata=%b",$realtime, imem_addr, instr);
     end
 
     initial begin
-        #10 imem_addr <= #(r)'h00000;
-        #10 imem_addr <= #(r)'h00001;
-        #10 imem_addr <= #(r)'h00002;
-        #10 imem_addr <= #(r)'h00003;
-        #10 imem_addr <= #(r)'h00004;
-        #10 imem_addr <= #(r)'h00005;
+        #10 imem_addr <= #(r)'b00000;
+        #10 imem_addr <= #(r)'b00001;
+        #10 imem_addr <= #(r)'b00010;
+        #10 imem_addr <= #(r)'b00011;
+        #10 imem_addr <= #(r)'b00100;
+        #10 imem_addr <= #(r)'b00101;
         $finish;
     end
 
    imem uut(
         .pc(imem_addr),
-        .instr(readdata)
+        .instr(instr)
     );
 
     
