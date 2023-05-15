@@ -4,6 +4,8 @@ The GigaHurt CPU is a 16 bit single cycle MIPS inspired cpu
 Designed entirely in verilog
 Completed for ECE-251 at the Cooper Union under Prof. Rob Marano
 
+The ISA of our CPU is linked [here]:(https://cdn.discordapp.com/attachments/911824785124757536/1107778792849670344/GigaHurt_Reference_Data.pdf)
+
 ## Usage
 
 To test the overall computer test the /components/computer module.
