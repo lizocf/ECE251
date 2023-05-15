@@ -39,14 +39,15 @@ module datapath_tb;
     logic [(n-1):0] result;
     logic [2:0] op;
     logic [3:0] funct;
-    logic [1:0] aluop;
-
+    
     initial begin
         $dumpfile("datapath.vcd");
         $dumpvars(0, uut1, uut2);
-        $monitor("time=%0t op=%b aluop=%b funct=%b zero0=%b, memtoreg=%b memwrite=%b pcsrc=%b alusrc=%b regdst=%b regwrite=%b jump=%b alucontrol=%b instr=%b zero1=%b pc=%b aluout=%b writedata=%b",
-                $realtime, op, aluop, funct, zero0, memtoreg, memwrite, pcsrc, 
-                alusrc, regdst, regwrite, jump, alucontrol, instr, zero1, pc, aluout, writedata);
+        $monitor("time=%0t instr=%b zero1=%b pc=%b alucontrol=%b aluout=%b writedata=%b",
+                $realtime, 
+                //op=%b funct=%b zero0=%b memtoreg=%b memwrite=%b pcsrc=%b alusrc=%b regdst=%b regwrite=%b jump=%b alucontrol=%b 
+                // op, funct, zero0, memtoreg, memwrite, pcsrc, alusrc, regdst, regwrite, jump, alucontrol, 
+                instr, zero1, pc, alucontrol, aluout, writedata);
     end
 
     always #5 clk = ~clk;
@@ -59,15 +60,15 @@ module datapath_tb;
         reset = 1;
         #10
         reset = 0;
-        zero0 = 1;
-        instr = 16'b0000010100110001;
-        #10
-        instr = 16'b0001011101110010;
-        #10
         zero0 = 0;
-        instr = 16'b0000010100110001;
+        instr = 16'b0110100000000111; // addi $2 $0 7
         #10
-        instr = 16'b0001011101110010;
+        instr = 16'b0110110000001010; // addi $3 $0 10
+        #10
+        instr = 16'b0000110100010001; // or $1 $2 $3
+        #10
+        instr = 16'b0100000010000000 ; // sw $2 2($1)
+        #10
         $finish;
     end
 

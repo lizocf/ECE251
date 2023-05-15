@@ -20,16 +20,18 @@ module imem
 
     input  logic [(r-1):0] pc,
     output logic [(n-1):0] instr
+    // output logic [(n-1):0] instr2
 );
 
     logic [(n-1):0] ROM[0:(2**r-1)];
 
   initial
     begin
-      $readmemh("Code.txt",ROM); 
+      $readmemb("Code.txt",ROM); 
     end
 
   assign instr = ROM[pc];
+  // assign instr2 = ROM[pc+2];
 
 endmodule
 
