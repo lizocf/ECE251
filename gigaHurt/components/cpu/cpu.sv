@@ -14,8 +14,8 @@
 `ifndef CPU
 `define CPU
 
-`include "./datapath.sv"
-`include "./controller.sv"
+`include "../datapath/datapath.sv"
+`include "../controller/controller.sv"
 
 module cpu
     #(parameter n = 16)(

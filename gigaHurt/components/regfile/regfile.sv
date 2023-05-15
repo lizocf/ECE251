@@ -30,7 +30,7 @@ module regfile
     //
     // ---------------- MODULE DESIGN IMPLEMENTATION ----------------
     //
-    reg [(n-1):0] rf[(2**r-1):0]; // create reg array
+    reg [(n-1):0] rf[((2**r)-1):0]; // create reg array
     integer i;
 
     // three ported register file

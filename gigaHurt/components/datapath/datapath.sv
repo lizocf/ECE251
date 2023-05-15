@@ -50,7 +50,7 @@ module datapath
 
     // "next PC+2" logic
     dff #(n)    pcreg(clk, reset, pcnext, pc);
-    adder       pcadd1(pc, 16'b10, pcplus2);
+    adder       pcadd1(pc, 16'd2, pcplus2);
     sl2         immsh(signimm, signimmsh); // sl1
     adder       pcadd2(pcplus2, signimmsh, pcbranch); 
     mux2 #(n)   pcbrmux(pcplus2, pcbranch, pcsrc, pcnextbr);
@@ -60,7 +60,7 @@ module datapath
     regfile     rf(clk, regwrite, instr[12:10], instr[9:7], writereg, result, srca, writedata);
     mux2 #(3)   wrmux(instr[9:7], instr[6:4], regdst, writereg);
     mux2 #(n)   resmux(aluout, readdata, memtoreg, result);
-    signext     se(instr[7:0], signimm);
+    signext     se(instr[6:0], signimm);
 
     // ALU logic
     mux2 #(n)   srcbmux(writedata, signimm, alusrc, srcb);

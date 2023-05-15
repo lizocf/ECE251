@@ -41,7 +41,7 @@ module maindec
             3'b000: controls <= 9'b000011010; // RTYPE
             
             // ITYPE
-            3'b001: controls <= 9'b011001000; // LW
+            3'b001: controls <= 9'b101001000; // LW
             3'b010: controls <= 9'b011000000; // SW
             3'b011: controls <= 9'b001001000; // ADDI
             // 3'b100: controls <= 9'b000100001; // BGT
