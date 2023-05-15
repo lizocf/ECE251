@@ -6,6 +6,8 @@ Completed for ECE-251 at the Cooper Union under Prof. Rob Marano
 
 The ISA of our CPU is linked [here](https://cdn.discordapp.com/attachments/911824785124757536/1107778792849670344/GigaHurt_Reference_Data.pdf).
 
+Unfortunately, there is a bug in our jump and branch commands. However, the rest of our CPU runs smoothly.
+
 ## Usage
 
 To test the overall computer test the /components/computer module.
