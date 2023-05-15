@@ -1,0 +1,11 @@
+// first line sets n=8 then begins fib directly 
+//without calling it as a function
+int fib(int n){         //second line of Code.txt represents the start of fib function
+
+    if(num<=2){         //this is a shortcut for fibonacci which is correct for n>0
+        return 2;
+    }
+    else{
+        return ( fib(n-1) + fib(n-2) );
+    }
+}

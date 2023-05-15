@@ -1,3 +1,4 @@
+addi r4, r0, 8         // load r4 with fib(n), here calculating the 8th fibonacci term
 addi $sp, $sp, -6      // $sp = r7 , set sp back 3 registers
 sw $ra, 4($sp)         // $ra = r6
 sw r4, 2($sp)
@@ -6,12 +7,12 @@ add r4, r3, r0         // add to replace move psuedoinstr
 addi r2, r0, 1
 addi r1, r0, 2
 slt r1, r1, r4         // slt then beq replaces ble psuedoinstr
-beq r1, r0, 30         // branch to fibexit
+beq r1, r0, 32         // branch to fibexit
 addi r3, r4, -1
-jal 0                  // goto top
+jal 2                  // goto line 2
 add r5, r2, r0
 addi r3, r4, -2
-jal 0                  // goto top
+jal 2                  // goto line 2
 add r2, r5, r2
 lw $ra, 4($sp)         // fibexit is this line (word 30)
 lw r4, 2($sp)
